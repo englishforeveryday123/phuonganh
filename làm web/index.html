@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Unit 3: Courtesy</title>
+    <style>
+        /* --- 1. CẤU HÌNH CHUNG --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- 2. HEADER / TIÊU ĐỀ TRANG --- */
+        .header {
+            text-align: center;
+            margin: 30px 0 40px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        /* --- 3. KHUNG BỐ TRÍ CÁC ĐỀ MỤC (GRID) --- */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 35px;
+        }
+
+        /* --- 4. THIẾT KẾ MỖI ĐỀ MỤC (CARD) --- */
+        .menu-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #2c3e50;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-bottom: 5px solid #3498db;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .menu-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* --- 5. HIỆU ỨNG RUNG RINH KHI RÊ CHUỘT/BẤM --- */
+        @keyframes rungRinh {
+            0% { transform: scale(1.03) rotate(0deg); }
+            20% { transform: scale(1.03) rotate(-1.5deg); }
+            40% { transform: scale(1.03) rotate(1.5deg); }
+            60% { transform: scale(1.03) rotate(-1.5deg); }
+            80% { transform: scale(1.03) rotate(1.5deg); }
+            100% { transform: scale(1.03) rotate(0deg); }
+        }
+
+        .menu-card:hover, .menu-card:active {
+            animation: rungRinh 0.4s ease-in-out;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+            border-bottom-color: #e74c3c;
+        }
+
+        .card-1 { border-bottom-color: #3498db; }
+        .card-2 { border-bottom-color: #2ecc71; }
+        .card-3 { border-bottom-color: #f1c40f; }
+        .card-4 { border-bottom-color: #e74c3c; }
+
+        /* --- 6. PHẦN GHI CHÚ SAU BỔI HỌC (AFTER-CLASS NOTES) --- */
+        .notes-section {
+            width: 100%;
+            max-width: 1000px;
+            background: #fff9e6;
+            border: 2px dashed #ffe58f;
+            border-left: 6px solid #f1c40f;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .notes-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #d48806;
+        }
+
+        .notes-header h2 {
+            font-size: 1.3rem;
+        }
+
+        .notes-list {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+
+        .notes-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .notes-list li::before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 0.9rem;
+        }
+
+        .notes-list strong {
+            color: #b7791f;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tiêu đề trang đầu -->
+    <div class="header">
+<h1>Tiếng anh - Cô Phương Linh</h1>
+        <h1>Unit 3: Courtesy</h1>
+        <p>Chọn một đề mục bên dưới để bắt đầu bài học</p>
+    </div>
+
+    <!-- 1. Danh sách các đề mục chính -->
+    <div class="menu-container">
+
+        <!-- Đề mục 1: Mở file tu-vung.html -->
+        <a href="tu-vung.html" class="menu-card card-1">
+            <span class="icon">📚</span>
+            <h2>1. Từ vựng & Đồng nghĩa</h2>
+            <p>Học từ vựng cốt lõi về quy tắc ứng xử và các từ đồng nghĩa.</p>
+        </a>
+
+
+        <!-- Đề mục 2: Mở file ngu-phap.html -->
+        <a href="ngu-phap.html" class="menu-card card-2">
+            <span class="icon">⚖️</span>
+            <h2>2. Ngữ pháp</h2>
+            <p>Sử dụng <i>Should</i> & <i>Shouldn't</i> để đưa ra lời khuyên lịch sự.</p>
+        </a>
+
+        <!-- Đề mục 3: Mở file nghe.html -->
+        <a href="nghe.html" class="menu-card card-3">
+            <span class="icon">🎧</span>
+            <h2>3. Kỹ năng nghe</h2>
+            <p>Luyện tập kỹ năng <i>Predicting</i> (Dự đoán nội dung bài nghe).</p>
+        </a>
+
+        <!-- Đề mục 4: Mở file phat-am.html -->
+        <a href="phat-am.html" class="menu-card card-4">
+            <span class="icon">🗣️</span>
+            <h2>4. Phát âm</h2>
+            <p>Quy tắc nối âm cuối <i>/s/</i> và <i>/z/</i> với nguyên âm.</p>
+        </a>
+
+    </div>
+
+    <!-- 2. Khung Note Sau Buổi Học -->
+    <div class="notes-section">
+        <div class="notes-header">
+            <span style="font-size: 1.5rem;">📝</span>
+            <h2>Ghi chú & Dặn dò sau buổi học (After-Class Notes)</h2>
+        </div>
+        
+        <ul class="notes-list">
+            <li><strong>Học thuộc từ vựng:</strong> Học thuộc 8 từ vựng chính (courtesy, etiquette, behavior, manners...) và các cặp từ đồng nghĩa.</li>
+            <li><strong>Bài tập ngữ pháp:</strong> Đặt 3 câu dùng <i>Should</i> và 3 câu dùng <i>Shouldn't</i> để nói về phép lịch sự ở nơi công cộng.</li>
+            <li><strong>Thực hành phát âm:</strong> Ghi âm lại 3 câu có chứa quy tắc nối âm giữa <span style="color: #e74c3c;">/s/</span>, <span style="color: #e74c3c;">/z/</span> và nguyên âm (ví dụ: <i>It's easy</i>, <i>was amazed</i>).</li>
+            <li><strong>Chuẩn bị cho buổi sau:</strong> Xem trước phần <i>Speaking (Trang 52-53)</i> - Chuẩn bị dàn ý thuyết trình ngắn về chủ đề "Bad Manners".</li>
+        </ul>
+    </div>
+
+</body>
+</html>
