@@ -1,65 +1,146 @@
-<p style="font-size: 1.05rem; line-height: 1.6; color: #2c3e50; margin-bottom: 20px;">
-    Kỹ năng dự đoán giúp bạn chủ động chuẩn bị tâm lý và huy động từ vựng liên quan trước khi nghe một bài thoại hay bài phát biểu.
-</p>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3: Kỹ năng nghe</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; padding: 20px; display: flex; justify-content: center; }
+        .container { max-width: 850px; width: 100%; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        
+        .btn-back { display: inline-block; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 8px; margin-bottom: 25px; font-weight: bold; transition: 0.2s; }
+        .btn-back:hover { background-color: #2980b9; }
+        
+        h1 { color: #2c3e50; margin-bottom: 15px; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2c3e50; margin: 25px 0 15px 0; }
 
-<h2 style="color: #2c3e50; margin-bottom: 20px;">Các bước thực hiện dự đoán:</h2>
+        /* 3 BƯỚC DỰ ĐOÁN */
+        .steps-container { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+        .step-card { background-color: #fffde7; border-left: 6px solid #fbc02d; padding: 18px 20px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .step-card h3 { color: #2c3e50; font-size: 1.1rem; font-weight: bold; margin-bottom: 8px; }
+        .step-card p { color: #455a64; font-size: 0.98rem; line-height: 1.5; margin: 0; }
+        .step-card em { color: #d84315; font-style: italic; }
 
-<!-- Khung danh sách các bước -->
-<div class="steps-container">
+        /* BÀI TẬP NGHE */
+        .quiz-card { background: #fafafa; border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px; margin-bottom: 25px; }
+        .quiz-title { font-weight: bold; color: #2c3e50; margin-bottom: 10px; font-size: 1.1rem; }
+        
+        .audio-box { background: #ffffff; border: 1px solid #dcdde1; padding: 12px 15px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+        
+        .btn-speaker { background-color: #e74c3c; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 5px; transition: 0.2s; }
+        .btn-speaker:hover { background-color: #c0392b; transform: scale(1.05); }
 
-    <!-- Bước 1 -->
-    <div class="step-card">
-        <h3>Bước 1: Tìm hiểu chủ đề trước khi nghe</h3>
-        <p>Đọc tiêu đề, xem qua hình ảnh minh họa hoặc tìm hiểu chủ đề của buổi trò chuyện/bài giảng.</p>
+        .options { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+        .option-btn { background: #fff; border: 2px solid #bdc3c7; padding: 12px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 0.95rem; transition: 0.2s; }
+        .option-btn:hover { border-color: #3498db; background: #f4f9fd; }
+        
+        .feedback { margin-top: 12px; font-weight: bold; padding: 8px 12px; border-radius: 6px; display: none; }
+        .feedback.correct { background: #d4edda; color: #155724; display: block; }
+        .feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="btn-back">⬅ Quay lại Trang Chủ</a>
+        <h1>🎧 Kỹ năng nghe: Dự đoán (Predicting)</h1>
+        
+        <p style="font-size: 1.05rem; line-height: 1.6; color: #2c3e50; margin-bottom: 20px;">
+            Kỹ năng dự đoán giúp bạn chủ động chuẩn bị tâm lý và huy động từ vựng liên quan trước khi nghe một bài thoại hay bài phát biểu.
+        </p>
+
+        <!-- PHẦN 1: CÁC BƯỚC DỰ ĐOÁN -->
+        <h2>Các bước thực hiện dự đoán:</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <h3>Bước 1: Tìm hiểu chủ đề trước khi nghe</h3>
+                <p>Đọc tiêu đề, xem qua hình ảnh minh họa hoặc tìm hiểu chủ đề của buổi trò chuyện/bài giảng.</p>
+            </div>
+            <div class="step-card">
+                <h3>Bước 2: Tự đặt câu hỏi chuẩn bị</h3>
+                <p>Tự hỏi bản thân: <em>"Mình đã biết gì về chủ đề này?"</em>, <em>"Những từ vựng nào có thể xuất hiện?"</em></p>
+            </div>
+            <div class="step-card">
+                <h3>Bước 3: Suy nghĩ trước nội dung tiếp theo</h3>
+                <p>Trong lúc nghe từng đoạn, hãy luôn chủ động đặt câu hỏi: <em>"Tiếp theo người nói sẽ đưa ra ý kiến hay giải pháp gì?"</em></p>
+            </div>
+        </div>
+
+        <!-- PHẦN 2: BÀI TẬP THỰC HÀNH KÈM LOA PHÁT ÂM -->
+        <h2>Luyện tập Nghe & Dự đoán</h2>
+
+        <!-- Câu 1 -->
+        <div class="quiz-card">
+            <div class="quiz-title">Câu 1: Bấm loa để nghe đoạn hội thoại, sau đó dự đoán phản hồi của Lan</div>
+            <div class="audio-box">
+                <span>🔊 <strong>Đoạn nghe:</strong> "Oh, I'm so sorry! I dropped your pen."</span>
+                <button class="btn-speaker" onclick="docDoanVan('Oh, I am so sorry! I dropped your pen.')">▶ Nghe câu</button>
+            </div>
+            <p style="font-weight: 500; margin-bottom: 8px;">Dự đoán câu phản hồi tiếp theo:</p>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, false, 'fb1', 'Sai rồi! Đây là câu ra lệnh bất lịch sự.')">A. Pick it up right now!</button>
+                <button class="option-btn" onclick="checkAnswer(this, true, 'fb1', 'Chính xác! Đáp lại lời xin lỗi một cách lịch sự.')">B. That's okay, don't worry about it.</button>
+                <button class="option-btn" onclick="checkAnswer(this, false, 'fb1', 'Chưa đúng! Câu này dùng để đáp lại lời cảm ơn.')">C. You are welcome.</button>
+            </div>
+            <div id="fb1" class="feedback"></div>
+        </div>
+
+        <!-- Câu 2 -->
+        <div class="quiz-card">
+            <div class="quiz-title">Câu 2: Bấm loa để nghe câu nhờ vả của Tim</div>
+            <div class="audio-box">
+                <span>🔊 <strong>Đoạn nghe:</strong> "Could you please hold the door for me?"</span>
+                <button class="btn-speaker" onclick="docDoanVan('Could you please hold the door for me?')">▶ Nghe câu</button>
+            </div>
+            <p style="font-weight: 500; margin-bottom: 8px;">Dự đoán phản hồi tiếp theo:</p>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, true, 'fb2', 'Chính xác! Đã sẵn sàng giúp đỡ.')">A. Sure, no problem!</button>
+                <button class="option-btn" onclick="checkAnswer(this, false, 'fb2', 'Sai rồi! Từ chối thô lỗ.')">B. No, I am busy.</button>
+                <button class="option-btn" onclick="checkAnswer(this, false, 'fb2', 'Chưa đúng! Đây là câu cảm ơn.')">C. Thank you very much.</button>
+            </div>
+            <div id="fb2" class="feedback"></div>
+        </div>
+
     </div>
 
-    <!-- Bước 2 -->
-    <div class="step-card">
-        <h3>Bước 2: Tự đặt câu hỏi chuẩn bị</h3>
-        <p>Tự hỏi bản thân: <em>"Mình đã biết gì về chủ đề này?"</em>, <em>"Những từ vựng nào có thể xuất hiện?"</em></p>
-    </div>
+    <!-- JAVASCRIPT XỬ LÝ ÂM THANH VÀ ĐÁP ÁN -->
+    <script>
+        function docDoanVan(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                var msg = new SpeechSynthesisUtterance(text);
+                msg.lang = 'en-US';
+                msg.rate = 0.85;
+                window.speechSynthesis.speak(msg);
+            } else {
+                alert("Trình duyệt không hỗ trợ nghe!");
+            }
+        }
 
-    <!-- Bước 3 -->
-    <div class="step-card">
-        <h3>Bước 3: Suy nghĩ trước nội dung tiếp theo</h3>
-        <p>Trong lúc nghe từng đoạn, hãy luôn chủ động đặt câu hỏi: <em>"Tiếp theo người nói sẽ đưa ra ý kiến hay giải pháp gì?"</em></p>
-    </div>
+        function checkAnswer(button, isCorrect, feedbackId, message) {
+            const feedbackEl = document.getElementById(feedbackId);
+            const parent = button.parentElement;
+            
+            const buttons = parent.querySelectorAll('.option-btn');
+            buttons.forEach(btn => {
+                btn.style.borderColor = '#bdc3c7';
+                btn.style.background = '#fff';
+            });
 
-</div>
+            if (isCorrect) {
+                button.style.borderColor = '#2ecc71';
+                button.style.background = '#e8f8f5';
+                feedbackEl.className = 'feedback correct';
+                feedbackEl.innerText = '✔️ ' + message;
+            } else {
+                button.style.borderColor = '#e74c3c';
+                button.style.background = '#fadbd8';
+                feedbackEl.className = 'feedback incorrect';
+                feedbackEl.innerText = '❌ ' + message;
+            }
+        }
+    </script>
 
-<!-- Mã CSS trang trí chuẩn giao diện thẻ như ảnh -->
-<style>
-    .steps-container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-bottom: 30px;
-    }
-
-    .step-card {
-        background-color: #fffde7; /* Màu nền vàng nhạt */
-        border-left: 6px solid #fbc02d; /* Thanh viền màu vàng đậm bên trái */
-        padding: 18px 20px;
-        border-radius: 4px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    .step-card h3 {
-        color: #2c3e50;
-        font-size: 1.1rem;
-        font-weight: bold;
-        margin-bottom: 8px;
-    }
-
-    .step-card p {
-        color: #455a64;
-        font-size: 0.98rem;
-        line-height: 1.5;
-        margin: 0;
-    }
-
-    .step-card em {
-        color: #d84315;
-        font-style: italic;
-    }
-</style>
+</body>
+</html>
