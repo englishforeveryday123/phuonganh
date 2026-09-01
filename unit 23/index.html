@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3: Courtesy — Full Curriculum Framework (6 Sessions)</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --success-color: #2ecc71;
+            --warning-color: #f1c40f;
+            --danger-color: #e74c3c;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* HEADER NAV */
+        header { background: var(--primary-color); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header h1 { font-size: 1.4rem; }
+        .top-nav { display: flex; gap: 10px; flex-wrap: wrap; }
+        .top-nav a { color: white; text-decoration: none; padding: 6px 12px; background: rgba(255,255,255,0.15); border-radius: 4px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; }
+        .top-nav a:hover { background: var(--accent-color); }
+
+        /* MAIN LAYOUT */
+        .layout { display: flex; flex: 1; }
+        
+        /* SIDEBAR */
+        sidebar { width: 260px; background: #34495e; padding: 20px 10px; color: white; }
+        sidebar h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: #bdc3c7; margin-bottom: 15px; padding-left: 10px; }
+        .session-tabs { list-style: none; }
+        .session-tabs li { margin-bottom: 8px; }
+        .session-tabs button { width: 100%; text-align: left; padding: 12px 15px; background: transparent; border: none; color: #ecf0f1; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: 0.2s; display: flex; align-items: center; justify-content: space-between; }
+        .session-tabs button:hover, .session-tabs button.active { background: var(--accent-color); color: white; font-weight: bold; }
+
+        /* CONTENT AREA */
+        main { flex: 1; padding: 30px; max-width: 1000px; margin: 0 auto; }
+        .session-content { display: none; }
+        .session-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* UI COMPONENTS */
+        .badge { background: #e67e22; color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem; text-transform: uppercase; }
+        .session-header { border-bottom: 3px solid var(--accent-color); padding-bottom: 10px; margin-bottom: 20px; }
+        .session-header h2 { color: var(--primary-color); font-size: 1.6rem; margin-top: 5px; }
+
+        .card { background: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid var(--accent-color); }
+        .card.yellow { border-left-color: var(--warning-color); background: #fffde7; }
+        .card.green { border-left-color: var(--success-color); background: #e8f8f5; }
+
+        h3 { color: var(--primary-color); margin-bottom: 12px; font-size: 1.2rem; }
+        
+        /* TABLES */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        table th, table td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 0.95rem; }
+        table th { background: var(--accent-color); color: white; }
+
+        /* BUTTONS & AUDIO */
+        .btn-speaker { background: var(--accent-color); color: white; border: none; padding: 5px 10px; border-radius: 15px; cursor: pointer; font-size: 0.8rem; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; transition: 0.2s; }
+        .btn-speaker:hover { background: #2980b9; transform: scale(1.05); }
+
+        /* QUIZ & INTERACTIVE */
+        .options-list { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+        .opt-btn { background: white; border: 2px solid #cbd5e1; padding: 10px; border-radius: 6px; text-align: left; cursor: pointer; transition: 0.2s; }
+        .opt-btn:hover { border-color: var(--accent-color); background: #f0f7ff; }
+        .feedback { margin-top: 10px; padding: 10px; border-radius: 6px; font-weight: bold; display: none; }
+        .feedback.correct { background: #d1fae5; color: #065f46; display: block; }
+        .feedback.incorrect { background: #fee2e2; color: #991b1b; display: block; }
+
+        /* FORM INPUTS */
+        textarea, input[type="text"], select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .layout { flex-direction: column; }
+            sidebar { width: 100%; }
+            .top-nav { margin-top: 10px; }
+            header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>UNIT 3 — COURTESY</h1>
+            <small style="color: #bdc3c7;">6 Sessions × 90 Minutes Curriculum Framework</small>
+        </div>
+        <nav class="top-nav">
+            <a href="index.html">Trang Chủ</a>
+            <a href="tu-vung.html">Từ Vựng</a>
+            <a href="ngu-phap.html">Ngữ Pháp</a>
+            <a href="nghe.html">Kỹ Năng Nghe</a>
+            <a href="phat-am.html">Phát Âm</a>
+        </nav>
+    </header>
+
+    <div class="layout">
+        <sidebar>
+            <h2>Mạch Bài Học</h2>
+            <ul class="session-tabs">
+                <li><button class="active" onclick="showSession(1)">1. What Is Courtesy? <span>Notice</span></button></li>
+                <li><button onclick="showSession(2)">2. Everyday Life <span>Understand</span></button></li>
+                <li><button onclick="showSession(3)">3. Classroom Courtesy <span>Practice</span></button></li>
+                <li><button onclick="showSession(4)">4. Across Cultures <span>Compare</span></button></li>
+                <li><button onclick="showSession(5)">5. Difficult Situations <span>Handle</span></button></li>
+                <li><button onclick="showSession(6)">6. Courtesy in Action <span>Create</span></button></li>
+            </ul>
+        </sidebar>
+
+        <main>
+
+            <!-- ================= SESSION 1 ================= -->
+            <section id="session-1" class="session-content active">
+                <div class="session-header">
+                    <span class="badge">Buổi 1 — NOTICE</span>
+                    <h2>WHAT IS COURTESY?</h2>
+                    <p><strong>Mục tiêu:</strong> Hiểu khái niệm courtesy, phân biệt <em>polite / rude / respectful</em>, nghe nắm ý chính (gist) và diễn đạt hành vi nên/không nên làm.</p>
+                </div>
+
+                <div class="card yellow">
+                    <h3>🔥 Warm-up: Categorization Task</h3>
+                    <p>Phân loại các hành vi sau vào nhóm tương ứng:</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px;">
+                        <div style="background: white; padding: 10px; border-radius: 6px;">
+                            1. Saying "Thank you" 
+                            <button class="btn-speaker" onclick="doc('Saying thank you')">🔊</button>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 6px;">
+                            2. Interrupting someone 
+                            <button class="btn-speaker" onclick="doc('Interrupting someone')">🔊</button>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 6px;">
+                            3. Holding the door 
+                            <button class="btn-speaker" onclick="doc('Holding the door')">🔊</button>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 6px;">
+                            4. Ignoring someone 
+                            <button class="btn-speaker" onclick="doc('Ignoring someone')">🔊</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📖 Listening 1 — Gist</h3>
+                    <p>Nghe đoạn văn ngắn về khái niệm Courtesy và chọn Main Idea:</p>
+                    <div style="background: #f8fafc; padding: 12px; border-radius: 6px; margin: 10px 0;">
+                        <button class="btn-speaker" onclick="doc('Courtesy means showing respect and consideration for other people. We show courtesy in many small ways. We say please and thank you. We listen when another person is speaking. We apologize when we make a mistake. These actions may seem simple, but they help people feel respected and comfortable.')">▶ Nghe Audio Bài Nói</button>
+                    </div>
+                    <p><strong>Question: What is the main idea of the passage?</strong></p>
+                    <div class="options-list">
+                        <button class="opt-btn" onclick="checkQuiz(this, false, 'fb-s1', 'Chưa chính xác! Đây chỉ là một ví dụ nhỏ, không phải ý chính.')">A. Courtesy is only about saying please and thank you.</button>
+                        <button class="opt-btn" onclick="checkQuiz(this, true, 'fb-s1', 'Chính xác! Courtesy bao gồm sự tôn trọng và quan tâm thông qua nhiều hành động nhỏ.')">B. Courtesy means showing respect and consideration in small everyday actions.</button>
+                        <button class="opt-btn" onclick="checkQuiz(this, false, 'fb-s1', 'Sai rồi! Đoạn văn khẳng định các hành vi này rất quan trọng.')">C. Simple manners are not important in modern life.</button>
+                    </div>
+                    <div id="fb-s1" class="feedback"></div>
+                </div>
+
+                <div class="card green">
+                    <h3>🗣️ Speaking Output (45 Seconds)</h3>
+                    <p>Dùng khung bên dưới để chuẩn bị bài nói: <em>"What does courtesy mean to you?"</em></p>
+                    <div style="margin-top: 10px;">
+                        <p>• One way to show courtesy is to <input type="text" placeholder="e.g. listen carefully"></p>
+                        <p>• People should <input type="text" placeholder="e.g. wait their turn"></p>
+                        <p>• People shouldn't <input type="text" placeholder="e.g. interrupt others"></p>
+                        <p>• This is important because <input type="text" placeholder="e.g. it makes people feel respected"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SESSION 2 ================= -->
+            <section id="session-2" class="session-content">
+                <div class="session-header">
+                    <span class="badge">Buổi 2 — UNDERSTAND</span>
+                    <h2>COURTESY IN EVERYDAY LIFE</h2>
+                    <p><strong>Mục tiêu:</strong> Làm chủ Functional English trong giao tiếp hàng ngày (khiến lời yêu cầu, xin lỗi, cảm ơn trở nên lịch sự hơn).</p>
+                </div>
+
+                <div class="card">
+                    <h3>📶 Speaking Ladder: Request Level</h3>
+                    <table>
+                        <tr>
+                            <th>Level</th>
+                            <th>Structure</th>
+                            <th>Example</th>
+                            <th>Audio</th>
+                        </tr>
+                        <tr>
+                            <td>Level 1 (Direct)</td>
+                            <td>Can you...?</td>
+                            <td>Can you give me that pen?</td>
+                            <td><button class="btn-speaker" onclick="doc('Can you give me that pen?')">🔊</button></td>
+                        </tr>
+                        <tr>
+                            <td>Level 2 (Polite)</td>
+                            <td>Could you...?</td>
+                            <td>Could you help me with this bag, please?</td>
+                            <td><button class="btn-speaker" onclick="doc('Could you help me with this bag, please?')">🔊</button></td>
+                        </tr>
+                        <tr>
+                            <td>Level 3 (Formal)</td>
+                            <td>Would you mind...?</td>
+                            <td>Would you mind opening the window?</td>
+                            <td><button class="btn-speaker" onclick="doc('Would you mind opening the window?')">🔊</button></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="card yellow">
+                    <h3>🎧 Functional Dialogue Matching</h3>
+                    <p>Bấm nghe các đoạn hội thoại ngắn và xác định chức năng ngôn ngữ:</p>
+                    <div style="margin-top: 10px;">
+                        <p>1. <strong>Dialogue A:</strong> "I'm sorry I'm late." — "That's okay." 
+                            <button class="btn-speaker" onclick="doc('I am sorry I am late. That is okay.')">🔊</button> 
+                            👉 <em>(Apology & Response)</em>
+                        </p>
+                        <p style="margin-top: 8px;">2. <strong>Dialogue B:</strong> "Would you mind moving your chair?" — "Not at all." 
+                            <button class="btn-speaker" onclick="doc('Would you mind moving your chair? Not at all.')">🔊</button> 
+                            👉 <em>(Polite Request & Response)</em>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SESSION 3 ================= -->
+            <section id="session-3" class="session-content">
+                <div class="session-header">
+                    <span class="badge">Buổi 3 — PRACTICE</span>
+                    <h2>CLASSROOM COURTESY</h2>
+                    <p><strong>Mục tiêu:</strong> Thực hành chiến lược nghe <strong>Predicting (Dự đoán)</strong> và xây dựng "Our Courtesy Code" cho lớp học.</p>
+                </div>
+
+                <div class="card yellow">
+                    <h3>🔮 Listening Skill: Predicting Strategy</h3>
+                    <p>Trước khi nghe bài giảng về Classroom Courtesy, hãy dự đoán 3 từ vựng sẽ xuất hiện:</p>
+                    <div style="display: flex; gap: 10px; margin: 10px 0;">
+                        <input type="text" id="pred1" placeholder="Dự đoán 1 (e.g., listen)">
+                        <input type="text" id="pred2" placeholder="Dự đoán 2 (e.g., raise hand)">
+                        <input type="text" id="pred3" placeholder="Dự đoán 3 (e.g., interrupt)">
+                    </div>
+                    <button class="btn-speaker" style="padding: 8px 15px;" onclick="doc('A respectful classroom is a place where everyone has a chance to learn. Students should listen when others are speaking. They should wait their turn and avoid interrupting. They should also respect different opinions. If someone makes a mistake, classmates should not laugh at them. Courtesy helps create a safe and positive learning environment.')">▶ Nghe Bài Để Kiểm Tra Dự Đoán</button>
+                </div>
+
+                <div class="card green">
+                    <h3>📋 Group Task: Our Courtesy Code</h3>
+                    <p>Điền các quy tắc cho lớp học của bạn:</p>
+                    <div style="margin-top: 10px;">
+                        <h4>✅ 3 Things students SHOULD do:</h4>
+                        <input type="text" placeholder="1. Students should raise their hand to speak." style="margin-bottom: 5px;">
+                        <input type="text" placeholder="2. Students should listen when others present." style="margin-bottom: 5px;">
+                        <input type="text" placeholder="3. Students should arrive on time." style="margin-bottom: 15px;">
+
+                        <h4>❌ 2 Things students SHOULDN'T do:</h4>
+                        <input type="text" placeholder="1. Students shouldn't laugh at classmates' mistakes." style="margin-bottom: 5px;">
+                        <input type="text" placeholder="2. Students shouldn't use mobile phones during class.">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SESSION 4 ================= -->
+            <section id="session-4" class="session-content">
+                <div class="session-header">
+                    <span class="badge">Buổi 4 — COMPARE</span>
+                    <h2>COURTESY ACROSS CULTURES</h2>
+                    <p><strong>Mục tiêu:</strong> Nâng cao nhận thức văn hóa; học cách dùng từ định tính (<em>can, may, in some cultures</em>) thay vì vơ đũa cả nắm.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🌍 Cultural Differences Comparison</h3>
+                    <table>
+                        <tr>
+                            <th>Behavior</th>
+                            <th>Culture A Context</th>
+                            <th>Culture B Context</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Eye Contact</strong></td>
+                            <td>Shows confidence and honesty.</td>
+                            <td>May feel uncomfortable or disrespectful to elders.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Punctuality</strong></td>
+                            <td>Strict adherence to time schedules.</td>
+                            <td>Flexible attitude towards time and appointments.</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="card yellow">
+                    <h3>🤔 Critical Thinking: Intention vs. Impact</h3>
+                    <p><strong>Situation:</strong> A international visitor does not make direct eye contact when saying thank you to an elder.</p>
+                    <p><strong>Question: Are they being rude?</strong></p>
+                    <div class="options-list">
+                        <button class="opt-btn" onclick="checkQuiz(this, false, 'fb-s4', 'Chưa đúng! Không thể vội vàng kết luận mà chưa xét bối cảnh văn hóa.')">A. Yes, they are completely rude.</button>
+                        <button class="opt-btn" onclick="checkQuiz(this, true, 'fb-s4', 'Chính xác! Cần xét xem họ đến từ văn hóa nào (Intention) trước khi đánh giá (Impact).')">B. It depends on their cultural background and intention.</button>
+                    </div>
+                    <div id="fb-s4" class="feedback"></div>
+                </div>
+            </section>
+
+            <!-- ================= SESSION 5 ================= -->
+            <section id="session-5" class="session-content">
+                <div class="session-header">
+                    <span class="badge">Buổi 5 — HANDLE</span>
+                    <h2>DIFFICULT SOCIAL SITUATIONS</h2>
+                    <p><strong>Mục tiêu:</strong> Phát triển trí tuệ cảm xúc (Social Intelligence), biết cách bất đồng ý kiến hoặc từ chối một cách lịch sự mà không gây xung đột.</p>
+                </div>
+
+                <div class="card green">
+                    <h3>🛠️ Disagree Politely Language Bank</h3>
+                    <p>Sử dụng các cấu trúc này để giữ lịch sự trong tình huống căng thẳng:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                        <li>"I understand your point, but..." <button class="btn-speaker" onclick="doc('I understand your point, but...')">🔊</button></li>
+                        <li>"I see it differently because..." <button class="btn-speaker" onclick="doc('I see it differently because...')">🔊</button></li>
+                        <li>"Could you please let me finish my point?" <button class="btn-speaker" onclick="doc('Could you please let me finish my point?')">🔊</button></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎭 Scenario Role-play Framework</h3>
+                    <p><strong>Problem:</strong> Someone interrupts you continuously in a group discussion.</p>
+                    <p><strong>Thinking Frame:</strong> Problem → Feeling → Best Response</p>
+                    <textarea rows="3" placeholder="Viết câu trả lời lịch sự của bạn (e.g., I understand you have an idea, but could you please let me finish first?)"></textarea>
+                </div>
+            </section>
+
+            <!-- ================= SESSION 6 ================= -->
+            <section id="session-6" class="session-content">
+                <div class="session-header">
+                    <span class="badge">Buổi 6 — CREATE</span>
+                    <h2>COURTESY IN ACTION & PROJECT</h2>
+                    <p><strong>Mục tiêu:</strong> Tổng hợp bài học, hoàn thành dự án <em>"A Guide to Courtesy for Teenagers"</em> và đánh giá năng lực theo Rubric 20 điểm.</p>
+                </div>
+
+                <div class="card yellow">
+                    <h3>🎤 Final Project Presentation Outline</h3>
+                    <div style="line-height: 1.8;">
+                        <p>1. <strong>Introduction:</strong> Today we are going to talk about courtesy.</p>
+                        <p>2. <strong>Rule 1:</strong> First, people should... because...</p>
+                        <p>3. <strong>Cultural Note:</strong> Courtesy can be different across cultures, for example...</p>
+                        <p>4. <strong>Difficult Situation:</strong> If someone interrupts, we recommend...</p>
+                        <p>5. <strong>Conclusion:</strong> In conclusion, courtesy is important because...</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📊 Unit Assessment Rubric Matrix (20 Points)</h3>
+                    <table>
+                        <tr>
+                            <th>Criteria</th>
+                            <th>Max Score</th>
+                            <th>Self / Teacher Evaluation</th>
+                        </tr>
+                        <tr>
+                            <td>1. Listening Comprehension</td>
+                            <td>4 Points</td>
+                            <td><input type="number" max="4" min="0" value="4"></td>
+                        </tr>
+                        <tr>
+                            <td>2. Appropriate Language (Functional)</td>
+                            <td>4 Points</td>
+                            <td><input type="number" max="4" min="0" value="4"></td>
+                        </tr>
+                        <tr>
+                            <td>3. Fluency & Interaction</td>
+                            <td>4 Points</td>
+                            <td><input type="number" max="4" min="0" value="4"></td>
+                        </tr>
+                        <tr>
+                            <td>4. Pronunciation & Intonation</td>
+                            <td>3 Points</td>
+                            <td><input type="number" max="3" min="0" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>5. Reasoning & Critical Thinking</td>
+                            <td>3 Points</td>
+                            <td><input type="number" max="3" min="0" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td>6. Interaction in Role-play</td>
+                            <td>2 Points</td>
+                            <td><input type="number" max="2" min="0" value="2"></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT CONTROLLERS -->
+    <script>
+        // Tab switching logic
+        function showSession(sessionNum) {
+            const contents = document.querySelectorAll('.session-content');
+            const buttons = document.querySelectorAll('.session-tabs button');
+
+            contents.forEach(content => content.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`session-${sessionNum}`).classList.add('active');
+            buttons[sessionNum - 1].classList.add('active');
+        }
+
+        // Text-to-Speech API
+        function doc(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Stop ongoing audio
+                var msg = new SpeechSynthesisUtterance(text);
+                msg.lang = 'en-US';
+                msg.rate = 0.85; // Natural slow pace
+                window.speechSynthesis.speak(msg);
+            } else {
+                alert("Trình duyệt không hỗ trợ tính năng phát âm!");
+            }
+        }
+
+        // Quiz check logic
+        function checkQuiz(button, isCorrect, feedbackId, message) {
+            const feedbackEl = document.getElementById(feedbackId);
+            const parent = button.parentElement;
+            
+            const buttons = parent.querySelectorAll('.opt-btn');
+            buttons.forEach(btn => {
+                btn.style.borderColor = '#cbd5e1';
+                btn.style.background = '#fff';
+            });
+
+            if (isCorrect) {
+                button.style.borderColor = '#2ecc71';
+                button.style.background = '#e8f8f5';
+                feedbackEl.className = 'feedback correct';
+                feedbackEl.innerHTML = '✔️ ' + message;
+            } else {
+                button.style.borderColor = '#e74c3c';
+                button.style.background = '#fadbd8';
+                feedbackEl.className = 'feedback incorrect';
+                feedbackEl.innerHTML = '❌ ' + message;
+            }
+        }
+    </script>
+</body>
+</html>

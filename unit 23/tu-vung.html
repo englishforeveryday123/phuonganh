@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 — Từ Vựng (Vocabulary & Chunks)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; padding: 20px; display: flex; justify-content: center; }
+        .container { max-width: 900px; width: 100%; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .btn-back { display: inline-block; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 8px; margin-bottom: 20px; font-weight: bold; }
+        h1 { color: #2c3e50; margin-bottom: 15px; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
+        .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; transition: 0.2s; }
+        .card:hover { border-color: #3498db; transform: translateY(-2px); }
+        .word { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .pos { font-size: 0.85rem; color: #e67e22; font-style: italic; margin-left: 5px; }
+        .meaning { color: #475569; margin: 5px 0 10px 0; font-size: 0.95rem; }
+        .btn-audio { background: #e2e8f0; border: none; padding: 6px 12px; border-radius: 15px; cursor: pointer; font-size: 0.85rem; font-weight: bold; color: #1e293b; }
+        .btn-audio:hover { background: #3498db; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="btn-back">⬅ Trang Chủ</a>
+        <h1>📖 Vocabulary Bank — Unit 3: Courtesy</h1>
+
+        <div class="grid-cards">
+            <div class="card">
+                <span class="word">courtesy</span><span class="pos">(n)</span>
+                <p class="meaning">Phép lịch sự, sự nhã nhặn</p>
+                <button class="btn-audio" onclick="doc('courtesy')">🔊 Nghe phát âm</button>
+            </div>
+            <div class="card">
+                <span class="word">respectful</span><span class="pos">(adj)</span>
+                <p class="meaning">Tôn trọng, thể hiện sự kính trọng</p>
+                <button class="btn-audio" onclick="doc('respectful')">🔊 Nghe phát âm</button>
+            </div>
+            <div class="card">
+                <span class="word">considerate</span><span class="pos">(adj)</span>
+                <p class="meaning">Chu đáo, biết quan tâm người khác</p>
+                <button class="btn-audio" onclick="doc('considerate')">🔊 Nghe phát âm</button>
+            </div>
+            <div class="card">
+                <span class="word">interrupt</span><span class="pos">(v)</span>
+                <p class="meaning">Ngắt lời, làm gián đoạn</p>
+                <button class="btn-audio" onclick="doc('interrupt')">🔊 Nghe phát âm</button>
+            </div>
+            <div class="card">
+                <span class="word">apologize</span><span class="pos">(v)</span>
+                <p class="meaning">Xin lỗi</p>
+                <button class="btn-audio" onclick="doc('apologize')">🔊 Nghe phát âm</button>
+            </div>
+            <div class="card">
+                <span class="word">show respect</span><span class="pos">(phrase)</span>
+                <p class="meaning">Thể hiện sự tôn trọng</p>
+                <button class="btn-audio" onclick="doc('show respect')">🔊 Nghe phát âm</button>
+            </div>
+            <div class="card">
+                <span class="word">wait your turn</span><span class="pos">(phrase)</span>
+                <p class="meaning">Chờ đến lượt mình</p>
+                <button class="btn-audio" onclick="doc('wait your turn')">🔊 Nghe phát âm</button>
+            </div>
+            <div class="card">
+                <span class="word">disagree politely</span><span class="pos">(phrase)</span>
+                <p class="meaning">Bất đồng ý kiến một cách lịch sự</p>
+                <button class="btn-audio" onclick="doc('disagree politely')">🔊 Nghe phát âm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function doc(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                var msg = new SpeechSynthesisUtterance(text);
+                msg.lang = 'en-US';
+                msg.rate = 0.85;
+                window.speechSynthesis.speak(msg);
+            }
+        }
+    </script>
+</body>
+</html>

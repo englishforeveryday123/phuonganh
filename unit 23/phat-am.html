@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 — Phát Âm (Pronunciation & Intonation)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; padding: 20px; display: flex; justify-content: center; }
+        .container { max-width: 900px; width: 100%; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .btn-back { display: inline-block; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 8px; margin-bottom: 20px; font-weight: bold; }
+        h1 { color: #2c3e50; margin-bottom: 15px; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .practice-box { background: #fffde7; border-left: 5px solid #fbc02d; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
+        .sentence-list { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .sentence-item { background: #f8fafc; padding: 12px 15px; border-radius: 8px; border: 1px solid #cbd5e1; display: flex; justify-content: space-between; align-items: center; }
+        .arrow-up { color: #e67e22; font-weight: bold; }
+        .btn-audio { background: #3498db; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="btn-back">⬅ Trang Chủ</a>
+        <h1>🗣️ Pronunciation: Intonation in Polite Requests</h1>
+
+        <div class="practice-box">
+            <h3>📌 Quy tắc Ngữ điệu (Intonation Rule):</h3>
+            <p>Khi đưa ra câu hỏi/yêu cầu lịch sự (Yes/No questions), giọng của bạn thường <strong>lên giọng (Rising Intonation <span class="arrow-up">⤴</span>)</strong> ở cuối câu để tạo cảm giác thân thiện, mềm mỏng và lịch sự. Tránh xuống giọng quá gắt vì sẽ tạo cảm giác ra lệnh.</p>
+        </div>
+
+        <h2>Thực hành Ngữ điệu Tương tác:</h2>
+        <div class="sentence-list">
+            <div class="sentence-item">
+                <span>1. Could you help me with this bag, please? <span class="arrow-up">⤴</span></span>
+                <button class="btn-audio" onclick="doc('Could you help me with this bag, please?')">▶ Nghe mẫu</button>
+            </div>
+            <div class="sentence-item">
+                <span>2. Would you mind closing the door? <span class="arrow-up">⤴</span></span>
+                <button class="btn-audio" onclick="doc('Would you mind closing the door?')">▶ Nghe mẫu</button>
+            </div>
+            <div class="sentence-item">
+                <span>3. Could I borrow your pen for a moment? <span class="arrow-up">⤴</span></span>
+                <button class="btn-audio" onclick="doc('Could I borrow your pen for a moment?')">▶ Nghe mẫu</button>
+            </div>
+            <div class="sentence-item">
+                <span>4. Excuse me, is this seat taken? <span class="arrow-up">⤴</span></span>
+                <button class="btn-audio" onclick="doc('Excuse me, is this seat taken?')">▶ Nghe mẫu</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function doc(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                var msg = new SpeechSynthesisUtterance(text);
+                msg.lang = 'en-US';
+                msg.rate = 0.85;
+                window.speechSynthesis.speak(msg);
+            }
+        }
+    </script>
+</body>
+</html>

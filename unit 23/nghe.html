@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 — Kỹ Năng Nghe (Listening Skills)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; }
+        
+        header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+
+        /* THANH ĐIỀU HƯỚNG CHUẨN THEO GIAO DIỆN MẪU */
+        .nav-bar { background: #34495e; padding: 12px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .nav-btn { background: #4a6572; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 0.95rem; transition: 0.2s; }
+        .nav-btn:hover, .nav-btn.active { background: #3498db; }
+
+        .container { max-width: 900px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        
+        h1 { color: #2c3e50; margin-bottom: 15px; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2c3e50; margin: 25px 0 15px 0; font-size: 1.25rem; border-left: 4px solid #3498db; padding-left: 10px; }
+
+        /* KHUNG QUY TRÌNH NGHE */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 25px; }
+        .process-card { background: #eef2f7; border: 1px solid #cbd5e1; padding: 12px; border-radius: 8px; }
+        .process-card strong { color: #e67e22; display: block; margin-bottom: 4px; }
+
+        /* KHUNG AUDIO BÀI NGHE */
+        .audio-card { background: #fffde7; border: 1px solid #fbc02d; padding: 20px; border-radius: 10px; margin-bottom: 25px; }
+        .btn-audio { padding: 10px 18px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; color: white; background-color: #2ecc71; transition: 0.2s; }
+        .btn-audio:hover { background-color: #27ae60; }
+        .btn-stop { background-color: #e74c3c; margin-left: 8px; }
+        .btn-stop:hover { background-color: #c0392b; }
+
+        /* BÀI TẬP TRẮC NGHIỆM & DỰ ĐOÁN */
+        .quiz-card { background: #fafafa; border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .quiz-title { font-weight: bold; color: #2c3e50; margin-bottom: 12px; font-size: 1.05rem; }
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .option-btn { background: #fff; border: 2px solid #bdc3c7; padding: 12px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 0.95rem; transition: 0.2s; }
+        .option-btn:hover { border-color: #3498db; background: #f4f9fd; }
+        
+        .feedback { margin-top: 12px; font-weight: bold; padding: 10px 12px; border-radius: 6px; display: none; }
+        .feedback.correct { background: #d4edda; color: #155724; display: block; }
+        .feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+
+        /* TRANSCRIPT */
+        details { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px; margin-top: 20px; }
+        summary { font-weight: bold; color: #1e293b; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>UNIT 3 — COURTESY</h1>
+        <p style="color: #ecf0f1; margin: 0;">Q: Skills for Success 2 — Listening & Speaking</p>
+    </header>
+
+    <!-- THANH ĐIỀU HƯỚNG ĐỒNG BỘ -->
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-btn">Trang Chủ</a>
+        <a href="tu-vung.html" class="nav-btn">Từ Vựng</a>
+        <a href="ngu-phap.html" class="nav-btn">Ngữ Pháp</a>
+        <a href="nghe.html" class="nav-btn active">Kỹ Năng Nghe</a>
+        <a href="phat-am.html" class="nav-btn">Phát Âm</a>
+    </nav>
+
+    <div class="container">
+        <h1>🎧 Kỹ Năng Nghe: Predicting & Listening Practice</h1>
+        
+        <!-- QUY TRÌNH LUYỆN NGHE CỐ ĐỊNH -->
+        <h2>1. Khung Quy Trình Luyện Nghe (Listening Framework)</h2>
+        <div class="process-grid">
+            <div class="process-card">
+                <strong>Step 1: Before Listening</strong>
+                <p>Kích hoạt từ vựng, dự đoán nội dung qua tiêu đề và câu hỏi.</p>
+            </div>
+            <div class="process-card">
+                <strong>Step 2: Listen 1 (Gist)</strong>
+                <p>Nghe lần 1 để xác định ý chính (Main Idea) của đoạn nói.</p>
+            </div>
+            <div class="process-card">
+                <strong>Step 3: Listen 2 (Details)</strong>
+                <p>Nghe lần 2 để trả lời câu hỏi chi tiết (Who, What, Why, How).</p>
+            </div>
+            <div class="process-card">
+                <strong>Step 4: Transcript & Noticing</strong>
+                <p>Đối chiếu Transcript, chú ý các cụm từ (chunks) và cấu trúc.</p>
+            </div>
+        </div>
+
+        <!-- BÀI NGHE THỰC HÀNH CHÍNH -->
+        <h2>2. Bài Nghe Thực Hành (Audio Practice)</h2>
+        <div class="audio-card">
+            <p><strong>Topic:</strong> <em>What is Courtesy & Classroom Rules?</em></p>
+            <p style="font-size: 0.9rem; color: #555; margin: 8px 0 15px 0;">Bấm nút bên dưới để nghe bài phát biểu mẫu:</p>
+            <button class="btn-audio" onclick="playAudio()">▶ Nghe Bài Audio</button>
+            <button class="btn-audio btn-stop" onclick="stopAudio()">⏹ Dừng</button>
+        </div>
+
+        <!-- BÀI TẬP TƯƠNG TÁC -->
+        <h2>3. Bài Tập Kiểm Tra Mức Độ Hiểu</h2>
+
+        <!-- Câu 1: Gist -->
+        <div class="quiz-card">
+            <div class="quiz-title">Câu 1 (Listen for Gist): Mục đích chính của đoạn văn trên là gì?</div>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, true, 'fb1', 'Chính xác! Bài nghe giải thích khái niệm courtesy và tầm quan trọng của nó.')">A. Giải thích ý nghĩa của Courtesy và các hành vi ứng xử tôn trọng.</button>
+                <button class="option-btn" onclick="checkAnswer(this, false, 'fb1', 'Chưa đúng! Đây chỉ là một ví dụ nhỏ trong bài nghe.')">B. Phê bình học sinh không tuân thủ nội quy lớp học.</button>
+            </div>
+            <div id="fb1" class="feedback"></div>
+        </div>
+
+        <!-- Câu 2: Predicting / Details -->
+        <div class="quiz-card">
+            <div class="quiz-title">Câu 2 (Listen for Details): Theo bài nghe, bạn nên làm gì khi người khác mắc lỗi?</div>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, false, 'fb2', 'Sai rồi! Việc cười nhạo lỗi sai của người khác là bất lịch sự (rude).')">A. Cười nhạo để họ nhận ra lỗi sai.</button>
+                <button class="option-btn" onclick="checkAnswer(this, true, 'fb2', 'Chính xác! Bài nghe nêu rõ: Classmates should not laugh at mistakes.')">B. Không cười nhạo và tôn trọng ý kiến của họ.</button>
+            </div>
+            <div id="fb2" class="feedback"></div>
+        </div>
+
+        <!-- TRANSCRIPT AN BỚT -->
+        <details>
+            <summary>📝 Xem Bài Dịch & Transcript (Kịch Bản Âm Thanh)</summary>
+            <p style="margin-top: 10px; line-height: 1.6; color: #334155;">
+                "Courtesy means showing respect and consideration for other people. We show courtesy in many small ways. We say please and thank you. We listen when another person is speaking. A respectful classroom is a place where everyone has a chance to learn. Students should wait their turn and avoid interrupting. If someone makes a mistake, classmates should not laugh at them. Courtesy helps create a safe and positive learning environment."
+            </p>
+        </details>
+    </div>
+
+    <!-- JAVASCRIPT XỬ LÝ -->
+    <script>
+        const audioScript = "Courtesy means showing respect and consideration for other people. We show courtesy in many small ways. We say please and thank you. We listen when another person is speaking. A respectful classroom is a place where everyone has a chance to learn. Students should wait their turn and avoid interrupting. If someone makes a mistake, classmates should not laugh at them. Courtesy helps create a safe and positive learning environment.";
+
+        function playAudio() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                var msg = new SpeechSynthesisUtterance(audioScript);
+                msg.lang = 'en-US';
+                msg.rate = 0.85;
+                window.speechSynthesis.speak(msg);
+            } else {
+                alert("Trình duyệt không hỗ trợ nghe!");
+            }
+        }
+
+        function stopAudio() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+        }
+
+        function checkAnswer(button, isCorrect, feedbackId, message) {
+            const feedbackEl = document.getElementById(feedbackId);
+            const parent = button.parentElement;
+            
+            const buttons = parent.querySelectorAll('.option-btn');
+            buttons.forEach(btn => {
+                btn.style.borderColor = '#bdc3c7';
+                btn.style.background = '#fff';
+            });
+
+            if (isCorrect) {
+                button.style.borderColor = '#2ecc71';
+                button.style.background = '#e8f8f5';
+                feedbackEl.className = 'feedback correct';
+                feedbackEl.innerHTML = '✔️ ' + message;
+            } else {
+                button.style.borderColor = '#e74c3c';
+                button.style.background = '#fadbd8';
+                feedbackEl.className = 'feedback incorrect';
+                feedbackEl.innerHTML = '❌ ' + message;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 — Ngữ Pháp (Grammar & Functions)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; padding: 20px; display: flex; justify-content: center; }
+        .container { max-width: 900px; width: 100%; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .btn-back { display: inline-block; padding: 10px 18px; background-color: #3498db; color: white; text-decoration: none; border-radius: 8px; margin-bottom: 20px; font-weight: bold; }
+        h1 { color: #2c3e50; margin-bottom: 15px; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2c3e50; margin: 20px 0 10px 0; font-size: 1.2rem; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #cbd5e1; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        .rule-box { background: #eef2f7; padding: 15px; border-left: 4px solid #3498db; border-radius: 4px; margin-bottom: 20px; }
+        .btn-speak { background: #2ecc71; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="btn-back">⬅ Trang Chủ</a>
+        <h1>📐 Grammar & Functional Structures — Unit 3</h1>
+
+        <h2>1. Đưa lời khuyên với Should / Shouldn't + Lý do</h2>
+        <div class="rule-box">
+            <p><strong>Cấu trúc:</strong> S + should / shouldn't + V (bare-infinitive) + <em>because...</em></p>
+            <p style="margin-top: 5px;">• Students <strong>should listen</strong> when others speak <em>because it shows respect</em>.</p>
+            <p>• You <strong>shouldn't interrupt</strong> people <em>because it can make them feel uncomfortable</em>.</p>
+        </div>
+
+        <h2>2. Lời yêu cầu lịch sự (Polite Requests)</h2>
+        <table>
+            <tr>
+                <th>Mức độ</th>
+                <th>Cấu trúc</th>
+                <th>Ví dụ</th>
+                <th>Mẫu câu</th>
+            </tr>
+            <tr>
+                <td>Cơ bản</td>
+                <td>Can you + V...?</td>
+                <td>Can you open the door?</td>
+                <td><button class="btn-speak" onclick="doc('Can you open the door?')">🔊 Nghe</button></td>
+            </tr>
+            <tr>
+                <td>Lịch sự</td>
+                <td>Could you + V, please?</td>
+                <td>Could you help me with this bag, please?</td>
+                <td><button class="btn-speak" onclick="doc('Could you help me with this bag, please?')">🔊 Nghe</button></td>
+            </tr>
+            <tr>
+                <td>Trang trọng</td>
+                <td>Would you mind + V-ing...?</td>
+                <td>Would you mind closing the window?</td>
+                <td><button class="btn-speak" onclick="doc('Would you mind closing the window?')">🔊 Nghe</button></td>
+            </tr>
+        </table>
+
+        <h2>3. Bất đồng ý kiến lịch sự (Polite Disagreement)</h2>
+        <div class="rule-box">
+            <p>• <strong>I understand your point, but...</strong> <button class="btn-speak" onclick="doc('I understand your point, but')">🔊 Nghe</button></p>
+            <p style="margin-top: 5px;">• <strong>I see it differently because...</strong> <button class="btn-speak" onclick="doc('I see it differently because')">🔊 Nghe</button></p>
+        </div>
+    </div>
+
+    <script>
+        function doc(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                var msg = new SpeechSynthesisUtterance(text);
+                msg.lang = 'en-US';
+                msg.rate = 0.85;
+                window.speechSynthesis.speak(msg);
+            }
+        }
+    </script>
+</body>
+</html>
